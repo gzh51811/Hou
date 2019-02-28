@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../stylesheets/base.css">
     <link rel="stylesheet" href="../stylesheets/addAdmin.css">
+    <script src="../javascripts/jquery-1.10.1.min.js"></script>
+    <script src="../javascripts/addAdmin.js"></script>
 </head>
 <body>
 <main class="clearfix">
@@ -61,46 +63,57 @@
                     用户名
                 </label>
                 <input type="text" placeholder="请输入用户名" id="username">
+                <span class="namespan"></span>
             </div>
             <div class="hang">
                 <label for="nicheng">
                     昵称
                 </label>
                 <input type="text" placeholder="请输入昵称" id="nicheng">
+                <span class="nispan"></span>
             </div>
             <div class="hang">
                 <label for="pwd">
                     密码
                 </label>
                 <input type="password" id="pwd">
+                <span class="pws"></span>
             </div>
             <div class="hang">
                 <label for="confirmPwd">
                     确认密码
                 </label>
                 <input type="password" id="confirmPwd">
+                <span style="display: none"></span>
             </div>
-            <div class="hang">
+            <div class="hang dinwei">
                 <label for="city">
                     城市
                 </label>
                 <input type="text"id="city" class="jgipt">
+               
                 <label for="sex">
                     性别
                 </label>
-                <input type="text" id="sex" class="jgipt" style="border-right:none;"><input type="button" class="qxzBtn">
+                <input type="text" id="sex" class="jgipt gender" style="border-right:none;"><input type="button" class="qxzBtn">
+                <div class="box" style="display:none">
+                    <p style="border-bottom:1px solid #ccc" class="man">男</p>
+                    <p class="woman">女</p>
+                </div>
             </div>
             <div class="hang">
                 <label for="kc">
                     职业
                 </label>
                 <input type="text" id="kc" style="width:150px;">
+              
             </div>
             <div class="hang" >
                 <label style="vertical-align: top;">
 
                 </label>
                 <input type="button" value="确认" id="confirmBtn">
+                <span style="display: none"></span>
             </div>
         </div>
     </div>

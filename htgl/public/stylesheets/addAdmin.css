@@ -80,6 +80,24 @@ main {
 #right .bottom .hang input.jgipt {
     width: 160px;
 }
+#right .bottom .dinwei{
+    position: relative;
+}
+#right .bottom .hang .box{
+    position:absolute;
+    top: 40px;
+    left:414px;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-top:none;
+}
+#right .bottom .hang .box p{
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+}
+
 
 #right .bottom .hang input#qxz {
     width: 120px;
