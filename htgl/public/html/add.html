@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/base.css">
+    <link rel="stylesheet" href="../stylesheets/add.css">
+</head>
+<body>
+<main class="clearfix">
+    <div id="left" class="fl">
+        <h1>后台管理系统</h1>
+        <div class="goodscontrol">
+            <h3>商品管理</h3>
+            <ul>
+                <li>商品列表</li>
+                <li>商品分类</li>
+                <li>添加商品</li>
+            </ul>
+        </div>
+        <div class="goodscontrol">
+            <h3>用户管理</h3>
+            <ul>
+                <li>用户列表</li>
+                <li>添加用户</li>
+            </ul>
+        </div>
+        <div class="goodscontrol">
+            <h3>订单管理</h3>
+            <ul>
+                <li>订单列表</li>
+            </ul>
+        </div>
+    </div>
+    <div id="right" class="fl">
+        <div class="splb">
+            <p>
+                首页 / 商品管理 /
+                <span>
+                        添加商品
+                    </span>
+            </p>
+        </div>
+        <div class="bottom">
+            <div class="hang">
+                <label for="mz">
+                    商品名称
+                </label>
+                <input type="text" placeholder="请输入标题" id="mz">
+            </div>
+            <div class="hang">
+                <label for="fbt">
+                    商品副标题
+                </label>
+                <input type="text" placeholder="请输入" id="fbt">
+            </div>
+            <div class="hang">
+                <label for="jg">
+                    商品价格
+                </label>
+                <input type="text" placeholder="请输入" id="jg" class="jgipt">
+                <label for="xsjg">
+                    销售价格
+                </label>
+                <input type="text" placeholder="请输入" id="xsjg" class="jgipt">
+            </div>
+            <div class="hang c">
+                <label for="qxz">
+                    商品分类
+                </label>
+                <input type="text" value="请选择" id="qxz"><input type="button" class="qxzBtn">
+            </div>
+            <div class="hang" style="height:120px;">
+                <label style="vertical-align: top;">
+                    商品图片
+                </label>
+                <ul class="clearfix">
+                    <li>
+                        <img src="../images/u736.png" alt=""><br>
+                        <input type="radio">设为封面
+                    </li>
+                    <li>
+                        <img src="../images/u736.png" alt=""><br>
+                        <input type="radio">设为封面
+                    </li>
+                    <li>
+                        <img src="../images/u736.png" alt=""><br>
+                        <input type="radio">设为封面
+                    </li>
+                    <li style="padding-top:80px;">
+                        <input type="file" id="file">
+                    </li>
+                </ul>
+            </div>
+            <div class="hang">
+                <label for="kc">
+                    库存
+                </label>
+                <input type="text" id="kc" style="width:150px;">
+            </div>
+            <div class="hang">
+                <label>
+                    上架
+                </label>
+                <input type="button" class="sjBtn" value="ON">
+            </div>
+            <div class="hang" style="height:160px;">
+                <label style="vertical-align: top;">
+                    商品描述
+                </label>
+                <textarea id='memo' style="height: 160px;width: 500px;resize: none;"></textarea>
+            </div>
+            <div class="hang" >
+                <label style="vertical-align: top;">
+
+                </label>
+                <input type="button" value="确认" id="confirmBtn">
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

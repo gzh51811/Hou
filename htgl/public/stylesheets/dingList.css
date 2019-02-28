@@ -1,0 +1,162 @@
+main {
+    width: 1300px;
+}
+
+#left {
+    width: 200px;
+    height:1000px;
+    background: #000;
+    color: #ccc;
+    text-align: center;
+}
+
+#left h1 {
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#left .goodscontrol h3 {
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#left .goodscontrol li {
+    height: 30px;
+    line-height: 30px;
+}
+
+#right {
+    width: 1100px;
+}
+
+#right .splb {
+    height: 50px;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+#right .splb p {
+    color: #ccc;
+    line-height: 50px;
+    padding-left: 50px;
+    font-size: 14px;
+}
+
+#right .splb p span {
+    color: #000;
+}
+
+#right .list .cz{
+    margin-bottom:20px;
+}
+
+#right .list .list_l {
+    padding-left: 50px;
+}
+
+#right .list .list_l input {
+    text-align: center;
+    line-height: 40px;
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#right .list .list_l input.tj {
+    background: #33AB9F;
+    color: #fff;
+}
+
+#right .list .list_l input.sc {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+#right .list .list_r {
+    margin-left: 200px;
+}
+
+#right .list .list_r .searchIpt {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+    margin-right: 10px;
+}
+
+#right .list .list_r .flk {
+    width: 120px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-right: none;
+    padding-left: 5px;
+}
+
+#right .list .list_r .sj {
+    width: 50px;
+    height: 40px;
+    background: url(../images/sj.png) no-repeat 17px 12px;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+#right .list .list_r .searchBtn {
+    width: 90px;
+    height: 40px;
+    background: #33AB9F;
+    color: #fff;
+}
+
+#right .list .itemList {
+    padding-left: 50px;
+}
+
+#right .list .itemList ul {
+    width: 951px;
+    border-left: 1px solid #CBCBCB;
+}
+
+#right .list .itemList ul.toubu {
+    background: #F2F2F2;
+    border-top: 1px solid #CBCBCB;
+}
+
+#right .list .itemList ul li {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    font-size:14px;
+    padding-left: 5px;
+    border-right: 1px solid #CBCBCB;
+    border-bottom: 1px solid #CBCBCB;
+}
+
+#right .list .itemList .bianji{
+    width:30px;
+    height:20px;
+    background:#33AB9F;
+    color:#fff;
+    margin-right:10px;
+}
+
+#right .list .itemList .shanchu{
+    width:30px;
+    height:20px;
+    color:#000;
+    background: #fff;
+    margin-right:10px;
+    border:1px solid #000;
+}
+
+#right .list .itemList .shangjia{
+    width:30px;
+    height:20px;
+    color:#fff;
+}
+
+
