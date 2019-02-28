@@ -3,6 +3,8 @@ jQuery(($) => {
     // 获取节点
 // 标题
     let $title = $("#mz");
+    //商品id
+    let $spid = $("#spid");
 // 商品价格
     let $jg = $("#jg");
 //销售价格
@@ -88,6 +90,7 @@ jQuery(($) => {
     //点击确认按钮 获取数据 发送数据
     $confirmBtn[0].onclick = () => {
         let title = $title.val();//标题
+        let id = $spid.val();//id
         let jg = $jg.val(); //价格
         let xsjg = $xsjg.val();//销售价格
         let fl = $qxz.val();//分类
@@ -108,6 +111,10 @@ jQuery(($) => {
 
         if(!title){
             alert("标题不能为空");
+            return;
+        }
+        if(!id){
+            alert("id不能为空");
             return;
         }
         if(!jg){
@@ -135,6 +142,7 @@ jQuery(($) => {
             url : 'http://localhost:3000/addItem',
             data : {
                 title,
+                id,
                 jg,
                 xsjg,
                 fl,

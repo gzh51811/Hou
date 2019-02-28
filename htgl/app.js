@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var uploadsRouter = require('./routes/uploads');
 var addItemRouter = require('./routes/addItem');
+var fenleiRouter = require('./routes/fenlei');
 var app = express();
 
 // view engine setup
@@ -27,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/login', loginRouter);
 app.use('/uploads', uploadsRouter);
 app.use('/addItem', addItemRouter);
+app.use('/fenlei', fenleiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

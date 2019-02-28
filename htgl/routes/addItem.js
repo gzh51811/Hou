@@ -10,6 +10,7 @@ router.get('/', function (req, res, next) {
 router.post('/', (req, res) => {
     let {
         title,
+        id,
         jg,
         xsjg,
         fl,
@@ -20,6 +21,7 @@ router.post('/', (req, res) => {
     } = req.body;
     let data = {
         title,
+        id,
         jg,
         xsjg,
         fl,
