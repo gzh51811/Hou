@@ -84,12 +84,15 @@ main {
 #right .bottom .hang input#qxz {
     width: 120px;
     border-right: none;
+    background: #fff;
+    cursor: pointer;
 }
 
 #right .bottom .hang input.qxzBtn {
     border-left: none;
     width: 40px;
     height: 40px;
+    cursor: pointer;
     background: url(../images/sj.png) no-repeat 12px 12px;
 }
 
@@ -129,4 +132,23 @@ main {
     font-size: 16px;
 }
 
+#tc {
+    display:none;
+    position: absolute;
+    left: 125px;
+    top: 39px;
+    z-index: 5;
+    border: 1px solid #ccc;
+    width: 160px;
+    background-color: #fff;
+}
 
+#tc ul li{
+    height: 40px;
+    width:158px;
+    text-align:center;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    margin-right:0 !important;
+    cursor:pointer;
+}

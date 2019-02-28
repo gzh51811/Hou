@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../stylesheets/base.css">
     <link rel="stylesheet" href="../stylesheets/fenlei.css">
+    <script src="../javascripts/jquery-1.10.1.min.js"></script>
+    <script src="../javascripts/fenlei.js"></script>
 </head>
 <body>
 <main class="clearfix">
@@ -67,40 +69,28 @@
                     <li style="width:50px;padding-left:18px;">
                         <input type="checkbox" class="xz">
                     </li>
-                    <li style="width:40px;">
-                        id
-                    </li>
                     <li style="width:200px;">
-                        商品名称
-                    </li>
-                    <li style="width:100px;">
-                        添加时间
+                        分类
                     </li>
                     <li style="width:159px;">
                         操作
                     </li>
                 </ul>
-                <ul class="clearfix">
-                    <li style="width:50px;padding-left:18px;">
-                        <input type="checkbox" class="xz">
-                    </li>
-                    <li style="width:40px;">
-                        1
-                    </li>
-                    <li style="width:200px;">
-                        iphone
-                    </li>
-                    <li style="width:100px;">
-                        2019-2-27
-                    </li>
-                    <li style="width:159px;">
-                        <input type="button" class="bianji" value="编辑">
-                        <input type="button" class="shanchu" value="删除">
-                        <input type="button" class="shangjia" value="上架">
-                    </li>
-                </ul>
-
             </div>
+        </div>
+    </div>
+    <div class="man">
+        <div class="fixed">
+            <p>
+                <label for="fenlei" style="display:inline-block">
+                    分类名称
+                </label>
+                <input type="text" id="fenlei">
+                <input type="button" value="提交" class="tjBtn">
+            </p>
+            <span class="close">
+                X
+            </span>
         </div>
     </div>
 </main>
