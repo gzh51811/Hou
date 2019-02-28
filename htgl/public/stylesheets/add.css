@@ -1,0 +1,128 @@
+main {
+    width: 1300px;
+}
+
+#left {
+    width: 200px;
+    height: 1000px;
+    background: #000;
+    color: #ccc;
+    text-align: center;
+}
+
+#left h1 {
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#left .goodscontrol h3 {
+    font-weight: bold;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#left .goodscontrol li {
+    height: 30px;
+    line-height: 30px;
+}
+
+#right {
+    width: 1100px;
+}
+
+#right .splb {
+    height: 50px;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+#right .splb p {
+    color: #ccc;
+    line-height: 50px;
+    padding-left: 50px;
+    font-size: 14px;
+}
+
+#right .splb p span {
+    color: #000;
+}
+
+#right .bottom {
+    padding-left: 50px;
+}
+
+#right .bottom .hang {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+#right .bottom .hang label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 20px;
+    text-align: right;
+}
+
+#right .bottom .hang input {
+    width: 500px;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+
+#right .bottom .hang input.jgipt {
+    width: 160px;
+}
+
+#right .bottom .hang input#qxz {
+    width: 120px;
+    border-right: none;
+}
+
+#right .bottom .hang input.qxzBtn {
+    border-left: none;
+    width: 40px;
+    height: 40px;
+    background: url(../images/sj.png) no-repeat 12px 12px;
+}
+
+#right .bottom .hang ul {
+    display: inline-block;
+}
+
+#right .bottom .hang ul li {
+    float: left;
+    margin-right: 30px;
+}
+
+#right .bottom .hang ul li input {
+    width: 13px;
+    height: 13px;
+}
+
+#right .bottom .hang ul li input#file {
+    border: none;
+    width: 250px;
+    height: 25px;
+}
+
+#right .bottom .hang .sjBtn {
+    width: 50px;
+    background: #33AB9F;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#right .bottom .hang #confirmBtn{
+    width:115px;
+    height:40px;
+    background:#33AB9F;
+    color:#fff;
+    font-size:16px;
+}
+
+
