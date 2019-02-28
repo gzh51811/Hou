@@ -123,6 +123,7 @@ $(() => {
         // console.log(this);
         let yeye = this.parentElement.parentElement;
         let fenlei = yeye.dataset.fenlei;
+        $gaifenlei.val(fenlei);
         // 弹窗出现
         $gai.css('display', 'block');
         $gaiBtn.on("click", () => {
