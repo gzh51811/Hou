@@ -29,6 +29,10 @@ main {
     line-height: 30px;
 }
 
+#left .goodscontrol li a {
+    color: #ccc;
+}
+
 #right {
     width: 1100px;
 }

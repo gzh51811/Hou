@@ -29,6 +29,10 @@ main {
     line-height: 30px;
 }
 
+#left .goodscontrol li a {
+    color: #ccc;
+}
+
 #right {
     width: 1100px;
 }
@@ -117,12 +121,12 @@ main {
     cursor: pointer;
 }
 
-#right .bottom .hang #confirmBtn{
-    width:115px;
-    height:40px;
-    background:#33AB9F;
-    color:#fff;
-    font-size:16px;
+#right .bottom .hang #confirmBtn {
+    width: 115px;
+    height: 40px;
+    background: #33AB9F;
+    color: #fff;
+    font-size: 16px;
 }
 
 
