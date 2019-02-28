@@ -14,7 +14,7 @@ $(() => {
         success(res) {
             let itemListArr = res;
             let html = itemListRendar(itemListArr);
-            $itemList.append(html);
+            $itemList.html(html);
         }
     });
 
@@ -43,7 +43,7 @@ $(() => {
             success(res) {
                 let itemListArr = res;
                 let html = itemListRendar(itemListArr);
-                $itemList.append(html);
+                $itemList.html(html);
             }
         });
         $man.css('display', 'none');
@@ -52,9 +52,20 @@ $(() => {
 
     // 定义一个渲染函数
     function itemListRendar(arr) {
-        let str = '';
+        let str = `<ul class="clearfix toubu">
+                    <li style="width:50px;padding-left:18px;">
+                        <input type="checkbox" class="xz">
+                    </li>
+                    <li style="width:200px;">
+                        分类
+                    </li>
+                    <li style="width:159px;">
+                        操作
+                    </li>
+                </ul>`;
         str += arr.map((item) => {
-            return `<ul class="clearfix">
+            return `
+                <ul class="clearfix">
                     <li style="width:50px;padding-left:18px;">
                         <input type="checkbox" class="xz">
                     </li>
