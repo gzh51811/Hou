@@ -143,12 +143,13 @@ $(() => {
                     $itemList.html(html);
                 }
             });
-            $gaiClose.on('click', () => {
-                $gai.css('display', 'none');
-            });
             $gai.css('display', 'none');
             $gaifenlei.val("");
         });
+    });
+
+    $gaiClose.on('click', () => {
+        $gai.css('display', 'none');
     });
 
     // 事件委托 li里面的编辑按钮可以删除分类
