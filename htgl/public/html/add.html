@@ -8,6 +8,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../stylesheets/base.css">
     <link rel="stylesheet" href="../stylesheets/add.css">
+    <script src="../javascripts/jquery-1.10.1.min.js"></script>
+    <script src="../javascripts/add.js"></script>
 </head>
 <body>
 <main class="clearfix">
@@ -78,11 +80,17 @@
                 </label>
                 <input type="text" placeholder="请输入" id="xsjg" class="jgipt">
             </div>
-            <div class="hang c">
+            <div class="hang" style="position:relative">
                 <label for="qxz">
                     商品分类
                 </label>
-                <input type="text" value="请选择" id="qxz"><input type="button" class="qxzBtn">
+                <input type="button" value="请选择" id="qxz"><input type="button" class="qxzBtn">
+                <div id="tc">
+                    <ul id="tcList">
+                        <li>手机</li>
+                        <li>手机</li>
+                    </ul>
+                </div>
             </div>
             <div class="hang" style="height:120px;">
                 <label style="vertical-align: top;">
@@ -90,19 +98,19 @@
                 </label>
                 <ul class="clearfix">
                     <li>
-                        <img src="../images/u736.png" alt=""><br>
+                        <img src="../images/u736.png" alt="" class="itemImg" style="width:100px;height:100px;"><br>
+                        <input type="radio" name="fengmian" class="fengmian" checked>设为封面
+                    </li>
+                    <li>
+                        <img src="../images/u736.png" alt="" class="itemImg" style="width:100px;height:100px;"><br>
                         <input type="radio" name="fengmian" class="fengmian">设为封面
                     </li>
                     <li>
-                        <img src="../images/u736.png" alt=""><br>
-                        <input type="radio" name="fengmian" class="fengmian">设为封面
-                    </li>
-                    <li>
-                        <img src="../images/u736.png" alt=""><br>
+                        <img src="../images/u736.png" alt="" class="itemImg" style="width:100px;height:100px;"><br>
                         <input type="radio" name="fengmian" class="fengmian">设为封面
                     </li>
                     <li style="padding-top:80px;">
-                        <input type="file" multiple id="file">
+                        <input type="file" multiple id="file" name="tupian">
                     </li>
                 </ul>
             </div>
@@ -132,6 +140,7 @@
             </div>
         </div>
     </div>
+
 </main>
 </body>
 </html>
