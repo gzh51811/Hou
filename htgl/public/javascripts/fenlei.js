@@ -8,6 +8,11 @@ $(() => {
     let $close = $('.close');//点击关闭弹窗的按钮
     let $itemList = $(".itemList");//要渲染数据的父元素
 
+    let $gai = $(".gai");
+    let $gaiBtn = $(".gaiBtn");
+    let $gaifenlei = $("#gaifenlei");
+    let $gaiClose = $(".gaiClose");
+
     //刚进来的时候 获取数据库信息 渲染页面
     $.ajax({
         type: 'get',
@@ -48,6 +53,7 @@ $(() => {
             }
         });
         $man.css('display', 'none');
+        $fenlei.val("");
     });
 
 //点击删除按钮
@@ -58,49 +64,114 @@ $(() => {
         // 就全不选
         let xz = document.getElementsByClassName('xz');
         // console.log(xz);
-        if(this.checked){
-            for(let i = 0;i < xz.length;i++){
+        if (this.checked) {
+            for (let i = 0; i < xz.length; i++) {
                 xz[i].checked = true;
             }
-        }else{
-            for(let i = 0;i < xz.length;i++){
+        } else {
+            for (let i = 0; i < xz.length; i++) {
                 xz[i].checked = false;
             }
         }
     });
 
-    $itemList.on('click','.xz',function(){
+    $itemList.on('click', '.xz', function () {
         // 点下面的选择框 根据它们的状态判断全选框的状态
         let xz = document.getElementsByClassName('xz');
         let quanxuan = document.getElementsByClassName('quanxuan')[0];
         let sum = 0;
-        for(let i = 0; i < xz.length;i++){
-            if(xz[i].checked){
-                sum ++;
+        for (let i = 0; i < xz.length; i++) {
+            if (xz[i].checked) {
+                sum++;
             }
         }
-        if(sum == xz.length){
+        if (sum == xz.length) {
             quanxuan.checked = true;
-        }else{
+        } else {
             quanxuan.checked = false;
         }
     });
 
     $sc.on('click', () => {
         // 点击之后获取有被选中的input框
-        console.log(666);
-        let sum = 0;
+        // console.log(666);
+        let xz = document.getElementsByClassName('xz');
+        let fenleiList = [];
         for (let i = 0; i < xz.length; i++) {
             if (xz[i].checked) {
-                sum++;
-                let fenleiList = [];
                 let yeye = xz[i].parentElement.parentElement;
                 fenleiList.push(yeye.dataset.fenlei);
             }
         }
         // 获取到了要删除的分类
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost:3000/fenlei/sc',
+            data: {
+                'fenleiList': JSON.stringify(fenleiList)
+            },
+            success(res) {
+                let itemListArr = res;
+                let html = itemListRendar(itemListArr);
+                $itemList.html(html);
+            }
+        })
     });
 
+    // 事件委托 li里面的编辑按钮可以更改分类
+    $itemList.on('click', '.bianji', function () {
+        // console.log(this);
+        let yeye = this.parentElement.parentElement;
+        let fenlei = yeye.dataset.fenlei;
+        // 弹窗出现
+        $gai.css('display', 'block');
+        $gaiBtn.on("click", () => {
+            let newFenlei = $gaifenlei.val();
+            if (!newFenlei) {
+                return;
+            }
+            $.ajax({
+                type: 'post',
+                url: 'http://localhost:3000/fenlei/update',
+                data: {
+                    fenlei,
+                    newFenlei
+                },
+                success(res) {
+                    let itemListArr = res;
+                    let html = itemListRendar(itemListArr);
+                    $itemList.html(html);
+                }
+            });
+            $gaiClose.on('click', () => {
+                $gai.css('display', 'none');
+            });
+            $gai.css('display', 'none');
+            $gaifenlei.val("");
+        });
+    });
+
+    // 事件委托 li里面的编辑按钮可以删除分类
+    $itemList.on('click', '.shanchu', function () {
+        let yeye = this.parentElement.parentElement;
+        let fenlei = yeye.dataset.fenlei;
+        console.log(yeye);
+        let fenleiList = [];
+        fenleiList.push(fenlei);
+        console.log(fenleiList);
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost:3000/fenlei/sc',
+            data: {
+                'fenleiList': JSON.stringify(fenleiList)
+            },
+            success(res) {
+                let itemListArr = res;
+                let html = itemListRendar(itemListArr);
+                $itemList.html(html);
+            }
+        });
+    });
 
     // 定义一个渲染函数
     function itemListRendar(arr) {
