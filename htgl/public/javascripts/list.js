@@ -180,6 +180,30 @@ $(function(){
         }
     });
         
+        //读取cookie获取用户名
+
+       var str =  document.cookie;
+      
+        var arr =  str.split("=");
+        if(arr[1] == "Guest"){
+           
+            $(".unames").css("display","none");
+             }else{
+           $(".unames").css("display","block");
+    
+         }
+         
+       if(arr){
+            $(".uname").text(arr[1]);
+            $(".uname").css("color","green")
+       }
+
+       $(".tuichu").click(function(){
+
+            location.href ="http://localhost:3000/html/login.html";
+
+       });
+       
 
 
 });

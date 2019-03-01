@@ -3,19 +3,21 @@ $(function(){
     $(".loginbtn").on("click",function(){
 
             var username = $(".username").val();
-            var password = $(".password").val();
+            var pwd = $(".password").val();
 
             $.ajax({
                 type:"post",
                 url:"http://localhost:3000/login",
                 data:{
                     username,
-                    password, 
+                    pwd, 
                 },
                 async:true,
                 success:function(str){
+                    console.log(str);
                     if(str.code == 200){
-                        alert("登录成功");
+                        document.cookie = "username="+str.data.Administrator;
+                        location.href="http://localhost:3000/html/list.html";
                     }else{
                         alert("用户名密码有误");
                     }

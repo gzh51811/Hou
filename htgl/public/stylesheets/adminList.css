@@ -120,7 +120,7 @@ main {
 }
 
 #right .list .itemList ul {
-    width: 951px;
+    width: 910px;
     border-left: 1px solid #CBCBCB;
 }
 
@@ -135,9 +135,10 @@ main {
     line-height: 30px;
     text-align: left;
     font-size: 14px;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     border-right: 1px solid #CBCBCB;
     border-bottom: 1px solid #CBCBCB;
+    text-align: center;
 }
 
 #right .list .itemList .bianji {
@@ -153,7 +154,7 @@ main {
     height: 20px;
     color: #000;
     background: #fff;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     border: 1px solid #000;
 }
 
