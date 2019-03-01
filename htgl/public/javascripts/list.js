@@ -9,6 +9,10 @@ function show(data){
             sale = status1;
             saleopen = status2;
         }
+
+        let imgSrc = item.imgUrls.slice(1,-1).split(",");
+        let img = "../" + imgSrc[0].slice(1,-1);
+
         return `
             <ul class="clearfix goodsList">
                 <li style="width:50px;padding-left:18px;">
@@ -18,7 +22,7 @@ function show(data){
                     ${item.uid}
                 </li>
                 <li style="width:100px;">
-                    ${item.img_src[0]}
+                    <img src="${img}" alt="" style="width:80px;">                    
                 </li>
                 <li style="width:200px;">
                     ${item.title}

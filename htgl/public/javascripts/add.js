@@ -97,11 +97,11 @@ jQuery(($) => {
     //点击确认按钮 获取数据 发送数据
     $confirmBtn[0].onclick = () => {
         let title = $title.val();//标题
-        let id = $spid.val();//id
-        let jg = $jg.val(); //价格
-        let xsjg = $xsjg.val();//销售价格
-        let fl = $qxz.val();//分类
-        let kc = $kc.val();//库存
+        let uid = $spid.val();//uid
+        let price = $jg.val(); //价格
+        let sale_price = $xsjg.val();//销售价格
+        let kinds = $qxz.val();//分类
+        let storage = $kc.val();//库存
 
         // 点击确认按钮时 要确认选哪张作为封面图片
         let cur = 0;//封面图片的索引值
@@ -120,23 +120,23 @@ jQuery(($) => {
             alert("标题不能为空");
             return;
         }
-        if (!id) {
+        if (!uid) {
             alert("id不能为空");
             return;
         }
-        if (!jg) {
+        if (!price) {
             alert("价格不能为空");
             return;
         }
-        if (!xsjg) {
+        if (!sale_price) {
             alert("销售价格不能为空");
             return;
         }
-        if (!fl) {
+        if (!kinds) {
             alert("分类不能为空");
             return;
         }
-        if (!kc) {
+        if (!storage) {
             alert("价格不能为空");
             return;
         }
@@ -149,11 +149,11 @@ jQuery(($) => {
             url: 'http://localhost:3000/addItem',
             data: {
                 title,
-                id,
-                jg,
-                xsjg,
-                fl,
-                kc,
+                uid,
+                price,
+                sale_price,
+                kinds,
+                storage,
                 flag,
                 imgUrls: JSON.stringify(imgUrls),
                 cur

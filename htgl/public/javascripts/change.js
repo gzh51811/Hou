@@ -3,17 +3,17 @@ function show(data){
     $('#mz').val(data.title);
     $('#fbt').val(data.subHead);
     $('#jg').val(data.price);
-    $('#xsjg').val(data.salePrice);
+    $('#xsjg').val(data.sale_price);
     $('#qxz').val(data.kinds);
     //图片引入
 
 
-    $('kc').val(data.storage);
+    $('#kc').val(data.storage);
 
     if(data.onsale == 'true'){
-        $('sjBtn').val("on");
+        $('#sjBtn').val("on");
     }else{
-        $('sjBtn').val("off");
+        $('#sjBtn').val("off");
     }
 
     $('#memo').val(data.desc);
