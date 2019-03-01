@@ -4,7 +4,7 @@ main {
 
 #left {
     width: 200px;
-    height: 1000px;
+    height: 670px;
     background: #000;
     color: #ccc;
     text-align: center;
@@ -163,7 +163,7 @@ main {
     color: #fff;
 }
 
-.man {
+.man,.gai {
     position: absolute;
     left: 0;
     top: 0;
@@ -190,14 +190,14 @@ main {
     line-height :100px;
 }
 
-.fixed p input#fenlei{
+.fixed p input#fenlei,.fixed p input#gaifenlei{
     margin-left:10px;
     border:1px solid #ccc;
     height:35px;
     width:120px;
 }
 
-.fixed p input.tjBtn{
+.fixed p input.tjBtn,.fixed p input.gaiBtn{
     width:50px;
     height:35px;
     background:#33AB9F;
@@ -205,7 +205,7 @@ main {
     cursor:pointer;
 }
 
-.fixed .close{
+.fixed .close,.fixed .gaiClose{
     position: absolute;
     right : 5px;
     top:5px;

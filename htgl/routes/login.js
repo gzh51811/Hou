@@ -14,7 +14,6 @@ router.post('/', async function(req, res, next) {
     }else{
         res.send(formatData({code:100}));
     }
-
     
 });
 

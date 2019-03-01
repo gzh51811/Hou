@@ -59,7 +59,14 @@ jQuery(($) => {
         file[0].value = null;
     };
 
-//分类弹窗
+//分类弹窗 从数据库渲染
+    $.ajax({
+        url : 'http://localhost:3000/fenlei',
+        success(res){
+           $tcList.html(tcRendar(res));
+        }
+    });
+
     $qxzBtn[0].onclick = () => {
         $tc.css("display", "block");
     };
@@ -79,10 +86,10 @@ jQuery(($) => {
 //上架按钮
     let flag = true;
     $sjBtn[0].onclick = () => {
-        if(flag){
-            $sjBtn.val("OFF").css("backgroundColor","#f00");
-        }else{
-            $sjBtn.val("ON").css("backgroundColor","#33AB9F");
+        if (flag) {
+            $sjBtn.val("OFF").css("backgroundColor", "#f00");
+        } else {
+            $sjBtn.val("ON").css("backgroundColor", "#33AB9F");
         }
         flag = !flag;
     };
@@ -90,71 +97,80 @@ jQuery(($) => {
     //点击确认按钮 获取数据 发送数据
     $confirmBtn[0].onclick = () => {
         let title = $title.val();//标题
-        let id = $spid.val();//id
-        let jg = $jg.val(); //价格
-        let xsjg = $xsjg.val();//销售价格
-        let fl = $qxz.val();//分类
-        let kc = $kc.val();//库存
+        let uid = $spid.val();//uid
+        let price = $jg.val(); //价格
+        let sale_price = $xsjg.val();//销售价格
+        let kinds = $qxz.val();//分类
+        let storage = $kc.val();//库存
 
         // 点击确认按钮时 要确认选哪张作为封面图片
         let cur = 0;//封面图片的索引值
-        for(let i = 0;i < $fengmianBtn.length;i++){
-            if($fengmianBtn[i].checked){
+        for (let i = 0; i < $fengmianBtn.length; i++) {
+            if ($fengmianBtn[i].checked) {
                 cur = i;
             }
         }
         let imgUrls = [];
         //图片路径
-        for(let i = 0;i < imgList.length;i++){
+        for (let i = 0; i < imgList.length; i++) {
             imgUrls.push(imgList[i].filename);
         }
 
-        if(!title){
+        if (!title) {
             alert("标题不能为空");
             return;
         }
-        if(!id){
+        if (!uid) {
             alert("id不能为空");
             return;
         }
-        if(!jg){
+        if (!price) {
             alert("价格不能为空");
             return;
         }
-        if(!xsjg){
+        if (!sale_price) {
             alert("销售价格不能为空");
             return;
         }
-        if(!fl){
+        if (!kinds) {
             alert("分类不能为空");
             return;
         }
-        if(!kc){
+        if (!storage) {
             alert("价格不能为空");
             return;
         }
-        if(!imgUrls){
+        if (!imgUrls) {
             alert("图片不能为空");
             return;
         }
         $.ajax({
-            type : 'post',
-            url : 'http://localhost:3000/addItem',
-            data : {
+            type: 'post',
+            url: 'http://localhost:3000/addItem',
+            data: {
                 title,
-                id,
-                jg,
-                xsjg,
-                fl,
-                kc,
+                uid,
+                price,
+                sale_price,
+                kinds,
+                storage,
                 flag,
-                imgUrls : JSON.stringify(imgUrls),
+                imgUrls: JSON.stringify(imgUrls),
                 cur
             },
-            success(res){
+            success(res) {
                 console.log(res);
             }
         })
     }
 
+
+    //渲染分类弹窗的函数
+    function tcRendar(arr) {
+        let str = '';
+        str += arr.map((item) => {
+            return `<li>${item.fenlei}</li>`;
+        }).join('');
+        return str;
+    }
 });

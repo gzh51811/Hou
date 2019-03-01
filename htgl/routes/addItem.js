@@ -10,22 +10,22 @@ router.get('/', function (req, res, next) {
 router.post('/', (req, res) => {
     let {
         title,
-        id,
-        jg,
-        xsjg,
-        fl,
-        kc,
+        uid,
+        price,
+        sale_price,
+        kinds,
+        storage,
         flag,
         imgUrls,
         cur
     } = req.body;
     let data = {
         title,
-        id,
-        jg,
-        xsjg,
-        fl,
-        kc,
+        uid,
+        price,
+        sale_price,
+        kinds,
+        storage,
         flag,
         imgUrls,
         cur,
@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
     };
     console.log(imgUrls);
     (async () => {
-        let result = await db.insert('items',data);
+        let result = await db.insert('goods',data);
         // console.log(result.result);
         if(result.result.ok){
             res.send("yes");
