@@ -15,12 +15,10 @@ router.post('/',async function(req, res, next) {
   
   //用户名是否存在
   router.get('/',async function(req, res, next) {
-
-        console.log(req.query);
         let {username} = req.query;
 
         let str = await db.find('user',{username});
-        console.log(username);
+        // console.log(username);
         if(str.length>0){
             res.send(formatData({code:100,msg:"no"}));
         }else{

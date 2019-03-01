@@ -54,7 +54,7 @@ $(function(){
                             success:function(str){
                                 console.log(str.code);
                               if(str.code == 200){
-                                  location.href="http://localhost:3000/html/login.html";
+                                //   location.href="http://localhost:3000/html/login.html";
                               }else{
                                   alert(str.msg);
                                   location.search;

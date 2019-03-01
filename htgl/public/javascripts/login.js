@@ -3,14 +3,14 @@ $(function(){
     $(".loginbtn").on("click",function(){
 
             var username = $(".username").val();
-            var password = $(".password").val();
+            var pwd = $(".password").val();
 
             $.ajax({
                 type:"post",
                 url:"http://localhost:3000/login",
                 data:{
                     username,
-                    password, 
+                    pwd, 
                 },
                 async:true,
                 success:function(str){
