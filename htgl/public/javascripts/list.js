@@ -5,7 +5,7 @@ function show(data){
 
         let sale = '未上架';
         let saleopen = status1;
-        if(item.onsale == 'true'){
+        if(item.flag == 'ON'){
             sale = status1;
             saleopen = status2;
         }
@@ -158,13 +158,13 @@ $(function(){
         let parentN = $(this).parent().parent();
         let sale = parentN.children(".sale");
         let uid = parentN.children(".uid").attr("uid");
-        let onsale ;
+        let flag ;
         if(sale.html().trim() == "未上架"){
-            onsale = true;
+            flag = "ON";
             sale.html("上架");
             $(this).val("下架");
         }else{
-            let onsale = false;
+            let flag = "OFF";
             sale.html("未上架");
             $(this).val("上架");
         }
@@ -172,7 +172,7 @@ $(function(){
             $.ajax({
                 type:"get",
                 url: "http://localhost:3000/list/updatesale",
-                data: {uid,onsale}
+                data: {uid,flag}
             });            
         } catch (error) {
             alert("操作失败！");

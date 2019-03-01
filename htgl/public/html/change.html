@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="../stylesheets/add.css">
     <script src="../javascripts/jquery-1.10.1.min.js"></script>    
     <script src="../javascripts/change.js"></script>
+
+    <style>
+        .dis{
+            display: block;
+        }
+    </style>
 </head>
 <body>
 <main class="clearfix">
@@ -62,46 +68,48 @@
                 <label for="mz">
                     商品名称
                 </label>
-                <input type="text" placeholder="请输入标题" id="mz">
+                <input type="text" placeholder="请输入标题" id="mz" valname="title">
             </div>
             <div class="hang">
                 <label for="fbt">
                     商品副标题
                 </label>
-                <input type="text" placeholder="请输入" id="fbt">
+                <input type="text" placeholder="请输入" id="fbt" valname="subHead">
             </div>
             <div class="hang">
                 <label for="jg">
                     商品价格
                 </label>
-                <input type="text" placeholder="请输入" id="jg" class="jgipt">
+                <input type="text" placeholder="请输入" id="jg" class="jgipt" valname="price">
                 <label for="xsjg">
                     销售价格
                 </label>
-                <input type="text" placeholder="请输入" id="xsjg" class="jgipt">
+                <input type="text" placeholder="请输入" id="xsjg" class="jgipt" valname="sale_price">
             </div>
-            <div class="hang c">
+            <div class="hang c" style="position: relative;">
                 <label for="qxz">
                     商品分类
                 </label>
-                <input type="text" value="请选择" id="qxz"><input type="button" class="qxzBtn">
+                <input type="text" value="请选择" id="qxz" valname="kinds"><input type="button" class="qxzBtn">
+                <ul style="width: 160px;position: absolute;border: 1px solid #ccc;left: 124px;top: 40px; z-index: 99; background: white;display: none" id="allKinds">
+                </ul>
             </div>
             <div class="hang" style="height:120px;">
                 <label style="vertical-align: top;">
                     商品图片
                 </label>
-                <ul class="clearfix">
+                <ul class="clearfix indexPage">
                     <li>
-                        <img src="../images/u736.png" alt=""><br>
-                        <input type="radio">设为封面
+                        <img src="../images/u736.png" alt="" style="height: 80px;width: 100px"><br>
+                        <input type="radio" name="cur">设为封面
                     </li>
                     <li>
-                        <img src="../images/u736.png" alt=""><br>
-                        <input type="radio">设为封面
+                        <img src="../images/u736.png" alt="" style="height: 80px;width: 100px"><br>
+                        <input type="radio" name="cur">设为封面
                     </li>
                     <li>
-                        <img src="../images/u736.png" alt=""><br>
-                        <input type="radio">设为封面
+                        <img src="../images/u736.png" alt="" style="height: 80px;width: 100px"><br>
+                        <input type="radio" name="cur">设为封面
                     </li>
                     <li style="padding-top:80px;">
                         <input type="file" id="file">
@@ -112,19 +120,19 @@
                 <label for="kc">
                     库存
                 </label>
-                <input type="text" id="kc" style="width:150px;">
+                <input type="text" id="kc" style="width:150px;" valname="storage">
             </div>
             <div class="hang">
                 <label>
                     上架
                 </label>
-                <input type="button" class="sjBtn" value="ON">
+                <input type="button" class="sjBtn" value="ON" valname="flag">
             </div>
             <div class="hang" style="height:160px;">
                 <label style="vertical-align: top;">
                     商品描述
                 </label>
-                <textarea id='memo' style="height: 160px;width: 500px;resize: none;"></textarea>
+                <textarea id='memo' style="height: 160px;width: 500px;resize: none;" valname="desc"></textarea>
             </div>
             <div class="hang" >
                 <label style="vertical-align: top;">

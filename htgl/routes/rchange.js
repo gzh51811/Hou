@@ -27,10 +27,9 @@ router.get("/getById",async (req,res,next)=>{
 
 //更新商品
 router.get("/updateById",async (req,res,next)=>{
-    let {uid,title} = req.query;
-    console.log(uid,title);
+    let {uid,updata} = req.query;
     try {
-        let result = await db.update("goods",{uid},{title});
+        let result = await db.update("goods",{uid},updata);
         res.send(formatData({            
             msg:"修改数据成功！"
         }));
@@ -40,7 +39,22 @@ router.get("/updateById",async (req,res,next)=>{
             msg:"修改数据失败！"
         }));        
     }
-
 });
+
+router.get("/allKinds",async (req,res,next)=>{
+    try {
+        let result = await db.find("fenlei");
+        res.send(formatData({            
+            data:result,
+            msg:"查询数据成功！"
+        }));
+    } catch (error) {
+        res.send(formatData({
+            code:404,
+            msg:"查询数据失败！"
+        }));        
+    }
+});
+
 
 module.exports = router;

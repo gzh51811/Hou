@@ -51,8 +51,8 @@ router.get("/del",async (req,res,next)=>{
 
 //更新上架，下架
 router.get("/updatesale",async (req,res,next)=>{
-    let {uid,onsale} = req.query;
-    await db.update("goods",{uid},{onsale});    
+    let {uid,flag} = req.query;
+    await db.update("goods",{uid},{flag});    
 });
 
 module.exports = router;
