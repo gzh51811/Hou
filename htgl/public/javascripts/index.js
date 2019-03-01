@@ -13,7 +13,7 @@ const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
 const database_url = 'mongodb://localhost:27017';
-const database_name = 'htgl';
+const database_name = 'config';
 
 async function connect(){
     let client = await MongoClient.connect(database_url,{ useNewUrlParser: true });
