@@ -10,7 +10,7 @@ router.post('/', async function(req, res, next) {
     let str = await db.find("user",{username,pwd});
     str = str[0];
     if(str){
-        res.send(formatData({msg:str._id}));
+        res.send(formatData({data:{username:str.username,Administrator:str.Administrator},msg:str._id}));
     }else{
         res.send(formatData({code:100}));
     }

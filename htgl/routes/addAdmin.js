@@ -6,7 +6,7 @@ const formatData =  require("../public/javascripts/formatData");
 router.post('/',async function(req, res, next) {
 
     let{username,pwd,nicheng,city,sex,kc}= req.body;
-    let data = {username,pwd,nicheng,city,sex,kc,regtime:Date.now()} 
+    let data = {username,pwd,nicheng,city,sex,kc,regtime:Date.now(),Administrator:"Guest"} 
     let str = await db.insert("user",data);
     console.log(str);
     res.send(formatData({msg:"注册成功"}));

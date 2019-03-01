@@ -56,6 +56,26 @@ $(function(){
             }
         });        
     });
+ //读取cookie获取用户名
+ var str =  document.cookie;          
+ var arr =  str.split("=");
+ if(arr){
+     $(".unames").text(arr[1]);
+     $(".unames").css("color","green")
+ }
+
+ $(".tuichu").click(function(){
+     location.href ="http://localhost:3000/html/login.html";
+ });
+ if(arr[1] == "Guest"){
+           
+    $(".uname").css("display","none");
+     }else{
+   $(".uname").css("display","block");
+
+ }
+
+
 
 });
 
