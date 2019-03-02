@@ -9,11 +9,11 @@ const formatData =  require("../public/javascripts/formatData");
 router.get("/getAll",async (req,res,next)=>{
 
     try {
-        let {title} = req.query;
+        let {title,querydata} = req.query;
         let result;
         if(title){
             var str = new RegExp(title);        
-            result = await db.find("goods",{title:str,kinds:"手机"});
+            result = await db.find("goods",{title:str,kinds:querydata.kinds});
         }else{
             result = await db.find("goods");
         }

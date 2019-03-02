@@ -1,3 +1,25 @@
+function showKinds(){
+    $.ajax({
+        type : "get",
+        url: "http://localhost:3000/change/allKinds",
+        success: function(result){
+            if(result.code == 200){
+
+                let html = result.data.map(function(item){
+                    return `<li style="width: 170px;height: 40px;line-height: 40px">
+                            ${item.fenlei}
+                            </li>`;
+                }).join('\n');
+
+                $('#allKinds').html(html);
+
+            }else{
+                alert(result.msg);
+            }
+        }
+    });            
+}
+
 function show(data){
     return data.map(function(item){
         let status1 = '上架';
@@ -54,11 +76,11 @@ function show(data){
 }
 
 $(function(){
-
-
+    let querydata={}
     let goodsUl = $(".goodsList");
 
     //数据获取渲染(初始化)
+    showKinds();
     $.ajax({
         type:"get",
         url: "http://localhost:3000/list/getAll",
@@ -129,11 +151,10 @@ $(function(){
     $('.searchBtn').click(function(){
         let inf = $('.searchIpt').val();
         let kinds = $('.flk').val();
-
         $.ajax({
             type:"get",
             url: "http://localhost:3000/list/getAll",
-            data: {title:inf},
+            data: {title:inf,querydata},
             success: function(result){
                 if(result.code == 200){
                     let html = show(result.data);
@@ -199,11 +220,18 @@ $(function(){
        }
 
        $(".tuichu").click(function(){
-
             location.href ="http://localhost:3000/html/login.html";
-
        });
        
-
+    //点击显示种类
+    $(".qxzBtn").click(function(){
+        $("#allKinds").toggle();
+    });
+    $("#allKinds").on('click','li',function(){
+        let values = $(this).html().trim();
+        $('.flk').val(values);
+        querydata = {kinds:values};
+        $(this).parent().toggle();
+    });
 
 });

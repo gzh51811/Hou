@@ -159,7 +159,14 @@ jQuery(($) => {
                 cur
             },
             success(res) {
-                console.log(res);
+                if(res == 'yes'){
+                    let isok = confirm('商品添加成功！,你需要继续添加商品吗？');
+                    if(isok){
+                        location.reload();
+                    }else{
+                        location.href = "./list.html";
+                    }
+                }
             }
         })
     }

@@ -9,7 +9,25 @@
     <link rel="stylesheet" href="../stylesheets/base.css">
     <link rel="stylesheet" href="../stylesheets/list.css">
     <script src="../javascripts/jquery-1.10.1.min.js"></script>
-    <script src="../javascripts/list.js"></script>    
+    <script src="../javascripts/list.js"></script> 
+    <style>
+    .list_r ul{
+        left: 315px;
+        top: 40px;
+        width: 170px;
+        display: none;
+        background: white;
+        border: 1px solid #ccc;
+    }
+    .list_r ul li{
+        height: 40px;
+        padding-left: 40px;
+        border-bottom: 1px solid #ccc;
+    }
+    .list_r ul li:last-child{
+        border: none;
+    }
+    </style>   
 </head>
 <body>
     <main class="clearfix">
@@ -68,9 +86,12 @@
                          line-height: 40px; background: #ccc;display: inline-block;text-align: center;vertical-align: middle;border-radius: 5px;">添加</a>
                         <input type="button" value="删除" class="sc">
                     </div>
-                    <div class="list_r fl">
+                    <div class="list_r fl" style="position: relative;">
                         <input type="text" placeholder="请输入标题" class="searchIpt">
-                        <input type="text" value="请选择分类" class="flk"><input type="button" class="sj">
+                        <input type="text" value="请选择分类" class="flk"><input type="button" class="sj qxzBtn">
+                        <ul style="position: absolute;" id="allKinds">
+                            <li>电脑</li>
+                        </ul>
                         <input type="button" value="搜索" class="searchBtn">
                     </div>
                     </div>

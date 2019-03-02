@@ -7,9 +7,8 @@ function show(data){
     $('#qxz').val(data.kinds);
     //图片引入
     let urls = data.imgUrls.slice(1,-1).split(",");    
-    console.log(urls);
     for(let i=0;i<urls.length;i++){
-        $('.indexPage li img').eq(i).attr("src","../" + urls[i].slice(1,-1));
+        $('.indexPage li div').eq(i).css("background-image","url(../" + urls[i].slice(1,-1) + ")");
     }
 
     $("input[type=radio]").eq(data.cur).attr("checked",1);
@@ -49,9 +48,9 @@ function showKinds(){
     });            
 }
 
-
-
 $(function(){
+    //用于存放待更新图片
+    let imgData = new FormData();
     let uid = location.search.slice(1).split("=")[1];
     
     //数据渲染部分
@@ -84,7 +83,20 @@ $(function(){
 
     //提交修改数据
     $("#confirmBtn").click(function(){
-        let title = $('#mz').val();
+        
+        //图片修改操作
+        $.ajax({
+            type : 'post',
+            url: "http://localhost:3000/change/uploadImg",
+            data: imgData,
+            contentType: false,
+            processData: false,
+            success: str => {
+                console.log(str);
+            }
+
+        });
+        
 
         $.ajax({
             type : "get",
@@ -92,13 +104,15 @@ $(function(){
             data: {uid,updata},
             success: function(result){
                 if(result.code == 200){
-                    alert(result.msg);
                     location.href = "./list.html";
                 }else{
                     alert(result.msg);
+                    location.reload();
                 }
             }
-        });        
+        });
+        
+        
     });
  //读取cookie获取用户名
  var str =  document.cookie;          
@@ -152,7 +166,25 @@ $(function(){
         updata = Object.assign(updata,{flag});
     });
 
-    //图片的修改
+    //更换图片的显示操作
+    $('#file').change(()=>{
+        let file = $('#file').get(0).files[0];
+        
+        let reader = new FileReader();
+
+        let data = null;
+        reader.onload = e=>{
+            data = e.target.result;
+            //获取当前选中框
+            if(data){
+                imgData.append('imgs',file);
+                var curIndex = $('input:radio:checked').parent().index();
+                $('.indexPage li div').eq(curIndex).css("background-image",`url(${data})`);
+            }
+        }
+
+        reader.readAsDataURL(file);
+    });
 
 
 

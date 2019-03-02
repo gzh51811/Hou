@@ -31,7 +31,6 @@ router.post('/', (req, res) => {
         cur,
         regtime: Date.now()
     };
-    console.log(imgUrls);
     (async () => {
         let result = await db.insert('goods',data);
         // console.log(result.result);
