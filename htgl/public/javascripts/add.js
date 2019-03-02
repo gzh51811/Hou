@@ -155,7 +155,7 @@ jQuery(($) => {
                 kinds,
                 storage,
                 flag,
-                imgUrls: JSON.stringify(imgUrls),
+                imgUrls: imgUrls.toString(),
                 cur
             },
             success(res) {

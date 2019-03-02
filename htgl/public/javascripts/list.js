@@ -32,8 +32,9 @@ function show(data){
             saleopen = status2;
         }
 
-        let imgSrc = item.imgUrls.slice(1,-1).split(",");
-        let img = "../" + imgSrc[0].slice(1,-1);
+        let imgSrc = item.imgUrls.split(",");
+        let cur = item.cur;
+        let img = "../" + imgSrc[cur];
 
         return `
             <ul class="clearfix goodsList">
@@ -44,7 +45,7 @@ function show(data){
                     ${item.uid}
                 </li>
                 <li style="width:100px;">
-                    <img src="${img}" alt="" style="width:80px;">                    
+                    <img src="${img}" alt="" style="width:70px;">                    
                 </li>
                 <li style="width:200px;">
                     ${item.title}
@@ -88,7 +89,7 @@ $(function(){
         success: function(result){
             if(result.code == 200){
                 let html = show(result.data);
-                $(".goodsList").html(html);
+                $("#goodsshow").html(html);
             }else{
                 alert(result.msg);
             }
@@ -233,5 +234,15 @@ $(function(){
         querydata = {kinds:values};
         $(this).parent().toggle();
     });
+
+    //全选
+    $('#allselect').click(()=>{
+        if($('#allselect').is(":checked")){
+            $('.goodsList li input').prop("checked",true);
+        }else{
+            $('.goodsList li input').prop("checked",false);
+        }
+    });
+
 
 });
