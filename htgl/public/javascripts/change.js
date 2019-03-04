@@ -1,60 +1,18 @@
-//渲染
-function show(data){
-    $('#mz').val(data.title);
-    $('#fbt').val(data.subHead);
-    $('#jg').val(data.price);
-    $('#xsjg').val(data.sale_price);
-    $('#qxz').val(data.kinds);
-    //图片引入
-    let urls = data.imgUrls.slice(1,-1).split(",");    
-    for(let i=0;i<urls.length;i++){
-        $('.indexPage li div').eq(i).css("background-image","url(../" + urls[i].slice(1,-1) + ")");
-    }
-
-    $("input[type=radio]").eq(data.cur).attr("checked",1);
-    $('#kc').val(data.storage);
-
-    if(data.flag == 'ON'){
-        $('.sjBtn').val("ON");
-        $('.sjBtn').css("background","#33AB9F");        
-    }else{
-        $('.sjBtn').val("OFF");
-        $('.sjBtn').css("background","red");           
-    }
-
-    $('#memo').val(data.desc);
-
-}
-
-function showKinds(){
-    $.ajax({
-        type : "get",
-        url: "http://localhost:3000/change/allKinds",
-        success: function(result){
-            if(result.code == 200){
-
-                let html = result.data.map(function(item){
-                    return `<li style="width: 160px;height: 40px;border-bottom: 1px solid #ccc;line-height: 40px">
-                            ${item.fenlei}
-                            </li>`;
-                }).join('\n');
-
-                $('#allKinds').html(html);
-
-            }else{
-                alert(result.msg);
-            }
-        }
-    });            
-}
-
 $(function(){
+
     //用于存放待更新图片
     let imgData = new FormData();
+    let saveFiles = [];
+    let imgUrls = [];
     let uid = location.search.slice(1).split("=")[1];
+    //存储数据改变部分
+    let updata = {};
     
     //数据渲染部分
+    //1.商品种类渲染
     showKinds();
+    
+    //2.商品详细信息渲染
     $.ajax({
         type : "get",
         url: "http://localhost:3000/change/getById",
@@ -67,13 +25,10 @@ $(function(){
             }
         }
     });
-
-    //获取数据改变部分
-    let updata = {};
     
     $('.bottom').on('change','*',function(){
         var name = $(this).attr('valname');
-        // //定义变量
+        //定义变量
         // window[name] = $(this).val();
         if(name){
             updata = Object.assign(updata,{[name]:$(this).val()});
@@ -83,7 +38,12 @@ $(function(){
 
     //提交修改数据
     $("#confirmBtn").click(function(){
-        
+        for(var i=0;i<saveFiles.length;i++){
+            if(saveFiles[i]){
+                imgData.append('imgs',saveFiles[i]);
+            };
+        }
+
         //图片修改操作
         $.ajax({
             type : 'post',
@@ -96,6 +56,7 @@ $(function(){
             }
 
         });
+        updata = Object.assign(updata,{imgUrls:imgUrls.toString()});
         
 
         $.ajax({
@@ -114,6 +75,7 @@ $(function(){
         
         
     });
+<<<<<<< HEAD
 
  // 判断是管理员身份
  var str =  document.cookie;
@@ -141,8 +103,26 @@ $(".tuichu").click(function(){
       localStorage.removeItem('user');
     location.href ="http://localhost:3000/html/login.html";
 });
+=======
+    //读取cookie获取用户名
+    var str =  document.cookie;          
+    var arr =  str.split("=");
+    if(arr){
+        $(".unames").text(arr[1]);
+        $(".unames").css("color","green")
+    }
+>>>>>>> 51f064fb50aea44bc38a3f5a95735a91f161e17a
 
+    $(".tuichu").click(function(){
+        location.href ="http://localhost:3000/html/login.html";
+    });
+    if(arr[1] == "Guest"){
+            
+        $(".uname").css("display","none");
+        }else{
+    $(".uname").css("display","block");
 
+    }
 
     //点击显示种类
     $(".qxzBtn").click(function(){
@@ -182,20 +162,71 @@ $(".tuichu").click(function(){
         let reader = new FileReader();
 
         let data = null;
+        
         reader.onload = e=>{
             data = e.target.result;
+            //获取所有imgurl值
             //获取当前选中框
             if(data){
-                imgData.append('imgs',file);
                 var curIndex = $('input:radio:checked').parent().index();
+                saveFiles[curIndex] = file;         
+                imgUrls[curIndex] = $('#file').val().slice(12); 
                 $('.indexPage li div').eq(curIndex).css("background-image",`url(${data})`);
             }
         }
-
         reader.readAsDataURL(file);
     });
 
+    //渲染种类函数
+    function showKinds(){
+        $.ajax({
+            type : "get",
+            url: "http://localhost:3000/change/allKinds",
+            success: function(result){
+                if(result.code == 200){
 
+                    let html = result.data.map(function(item){
+                        return `<li style="width: 160px;height: 40px;border-bottom: 1px solid #ccc;line-height: 40px">
+                                ${item.fenlei}
+                                </li>`;
+                    }).join('\n');
+
+                    $('#allKinds').html(html);
+
+                }else{
+                    alert(result.msg);
+                }
+            }
+        });            
+    }    
+
+
+    //渲染函数
+    function show(data){
+        $('#mz').val(data.title);
+        $('#fbt').val(data.subHead);
+        $('#jg').val(data.price);
+        $('#xsjg').val(data.sale_price);
+        $('#qxz').val(data.kinds);
+        //图片引入
+        imgUrls = data.imgUrls.split(","); 
+        for(let i=0;i<imgUrls.length;i++){
+            $('.indexPage li div').eq(i).css("background-image","url(../" + imgUrls[i] + ")");
+        }
+
+        $("input[type=radio]").eq(data.cur).attr("checked",1);
+        $('#kc').val(data.storage);
+
+        if(data.flag == 'ON'){
+            $('.sjBtn').val("ON");
+            $('.sjBtn').css("background","#33AB9F");        
+        }else{
+            $('.sjBtn').val("OFF");
+            $('.sjBtn').css("background","red");           
+        }
+        $('#memo').val(data.desc);
+    }
 
 });
+
 

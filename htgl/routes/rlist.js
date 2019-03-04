@@ -13,9 +13,17 @@ router.get("/getAll",async (req,res,next)=>{
         let result;
         if(title){
             var str = new RegExp(title);        
-            result = await db.find("goods",{title:str,kinds:querydata.kinds});
+            if(querydata){
+                result = await db.find("goods",{title:str,kinds:querydata.kinds});
+            }else{
+                result = await db.find("goods",{title:str}); 
+            }
         }else{
-            result = await db.find("goods");
+            if(querydata){
+                result = await db.find("goods",{kinds:querydata.kinds});
+            }else{
+                result = await db.find("goods");
+            }
         }
         res.send(formatData({
             data:result,
