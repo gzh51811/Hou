@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const db = require('../public/javascripts');
 const formatData =  require("../public/javascripts/formatData");
+const token = require('../public/utils/token');
 
 router.post('/', async function(req, res, next) {
 
@@ -10,9 +11,17 @@ router.post('/', async function(req, res, next) {
     let str = await db.find("user",{username,pwd});
     str = str[0];
     if(str){
-        res.send(formatData({data:{username:str.username,Administrator:str.Administrator},msg:str._id}));
+        let _token = token.create(username);
+        res.send({
+            code:200,
+            username:str.username,
+            Administrator:str.Administrator,
+            token: _token
+        });
+  
+
     }else{
-        res.send(formatData({code:100}));
+        res.send({code:100});
     }
     
 });

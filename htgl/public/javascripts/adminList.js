@@ -146,13 +146,19 @@ if(arr[1] == "Guest"){
 
 }
 
-    if(arr){
-        $(".uname").text(arr[1]);
-        $(".uname").css("color","green")
-    }
+//读取localstorage获取用户名
+var user = localStorage.getItem("user");
+    
+if(!user){
+   user = {};
+ }else{
+      user = JSON.parse(user);
+      $(".uname").text(user.username);
+   }
 
-    $(".tuichu").click(function(){
-        location.href ="http://localhost:3000/html/login.html";
-    });
+$(".tuichu").click(function(){
+     localStorage.removeItem('user');
+   location.href ="http://localhost:3000/html/login.html";
+});
 
 });
