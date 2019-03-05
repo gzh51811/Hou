@@ -3,6 +3,35 @@
 
 项目人员：组长：马力   组员：李林，林俊金
 
+项目分工：
+
+​			马力-商品列表
+
+​			李林-商品分类
+
+​			林俊金-用户管理
+
+项目结构
+
+
+└─Hou
+    └─htgl
+        ├─.idea
+        ├─bin
+        ├─public
+        │  ├─css
+        │  │  └─bootstrap
+        │  │      ├─css
+        │  │      └─js
+        │  ├─html
+        │  ├─images
+        │  ├─javascripts
+        │  ├─stylesheets
+        │  └─utils
+        ├─routes
+        ├─uploads
+        └─views
+
 演示地址：
 
 ### 技术
