@@ -30,6 +30,7 @@ $(function(){
         var name = $(this).attr('valname');
         //定义变量
         // window[name] = $(this).val();
+        // console.log(window[name]);
         if(name){
             updata = Object.assign(updata,{[name]:$(this).val()});
         }
@@ -173,7 +174,10 @@ $(function(){
 
     //渲染函数
     function show(data){
-        $('#mz').val(data.title);
+        // for (const key in data) {   
+        //        $('#' + key).val(data[key]);
+        // }
+        $('#title').val(data.title);
         $('#fbt').val(data.subHead);
         $('#jg').val(data.price);
         $('#xsjg').val(data.sale_price);
@@ -198,5 +202,3 @@ $(function(){
     }
 
 });
-
-

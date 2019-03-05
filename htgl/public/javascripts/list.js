@@ -159,7 +159,7 @@ $(function(){
             success: function(result){
                 if(result.code == 200){
                     let html = show(result.data);
-                    $(".goodsList").html(html);
+                    $("#goodsshow").html(html);
                 }else{
                     alert(result.msg);
                 }
