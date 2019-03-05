@@ -13,7 +13,7 @@
 
 项目结构
 
-
+```
 └─Hou
     └─htgl
         ├─.idea
@@ -31,6 +31,7 @@
         ├─routes
         ├─uploads
         └─views
+```
 
 演示地址：
 
