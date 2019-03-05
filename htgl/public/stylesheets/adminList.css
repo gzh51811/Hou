@@ -1,7 +1,9 @@
 main {
     width: 1300px;
 }
-
+.superme{
+    display: none;
+}
 #left {
     width: 200px;
     height: 1000px;

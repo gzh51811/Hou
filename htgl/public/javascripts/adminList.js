@@ -6,16 +6,29 @@ $(function(){
         location.href="http://localhost:3000/html/addAdmin.html";
 
     });
+    //隐藏用户添加
+    var str =  document.cookie;
+            
+    var arr =  str.split("=");
+    if(arr[1] == "Guest"){
+        $(".unames").css("display","none");
+    }else{
+        $(".unames").css("display","block");
+    }
 
+   
+
+    // 渲染所有用户
     $.ajax({
         type:"get",
         url:"http://localhost:3000/adminList",
         success:function(str){
+           
                 show(str);
-               
+
         }
     });
-
+    
     //单个删除按钮
     $('.users').on("click",".shanchu",function(){
         var yeye =  $(this).parent().parent();
@@ -28,7 +41,9 @@ $(function(){
                 username      
             },
             success:function(str){
+              
                 show(str);
+               
             }
         })
     });
@@ -126,25 +141,16 @@ $(function(){
                             ${arr1[0]}
                   </li>
                   <li style="width:159px;">
-                      <input type="button" class="bianji" value="编辑">
-                      <input type="button" class="shanchu" value="删除">
+                      <input type="button" class="shanchu ${item.Administrator}"  value="删除">
                   </li></ul>`    
           }).join(""); 
-             
+        
           $(".users").html(arr); 
          
     }
 
-//隐藏用户添加
-var str =  document.cookie;
-      
-var arr =  str.split("=");
-if(arr[1] == "Guest"){
-     $(".unames").css("display","none");
-}else{
-     $(".unames").css("display","block");
 
-}
+
 
 //读取localstorage获取用户名
 var user = localStorage.getItem("user");
