@@ -106,25 +106,32 @@ $(function(){
 
                });
                
-    //隐藏用户添加
-       var str =  document.cookie;
-      
-       var arr =  str.split("=");
-       if(arr[1] == "Guest"){
-           
-        $(".unames").css("display","none");
+          //隐藏用户添加
+            var str =  document.cookie;
+                
+            var arr =  str.split("=");
+            if(arr[1] == "Guest"){
+                $(".unames").css("display","none");
+            }else{
+                $(".unames").css("display","block");
+
+            }     
+               
+        //读取localstorage获取用户名
+        var user = localStorage.getItem("user");
+    
+        if(!user){
+           user = {};
+           location.href ="http://localhost:3000/html/login.html";
          }else{
-       $(".unames").css("display","block");
+              user = JSON.parse(user);
+              $(".uname").text(user.username);
+           }
 
-         }
-         if(arr){
-            $(".uname").text(arr[1]);
-            $(".uname").css("color","green")
-        }
-
-        $(".tuichu").click(function(){
+       $(".tuichu").click(function(){
+              localStorage.removeItem('user');
             location.href ="http://localhost:3000/html/login.html";
-        });
+       });
      
 
 

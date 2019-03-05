@@ -14,6 +14,7 @@ var adminListRouter = require('./routes/adminList');
 var uploadsRouter = require('./routes/uploads');
 var addItemRouter = require('./routes/addItem');
 var fenleiRouter = require('./routes/fenlei');
+var tokenRouter = require('./routes/token');
 var app = express();
 
 // view engine setup
@@ -37,6 +38,7 @@ app.use('/adminList', adminListRouter);
 app.use('/uploads', uploadsRouter);
 app.use('/addItem', addItemRouter);
 app.use('/fenlei', fenleiRouter);
+app.use('/token', tokenRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

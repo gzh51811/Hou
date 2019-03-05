@@ -9,7 +9,7 @@ router.get('/', async function(req,res,next) {
   res.send(str);
 });
 
-
+//单个删除按钮
 router.post('/', async function(req,res,next) {
   let{username} = req.body;
   let del = await db.delete("user",{username});
@@ -21,14 +21,13 @@ router.post('/', async function(req,res,next) {
     } 
 });
 
+
+// 总删除按钮
 router.post('/dele', async function(req,res,next) {
- 
   let {arr} = req.body;
   if(typeof arr == "string"){
     arr = [arr];
   }
-console.log(arr);
-console.log(req.body);
   let str = await db.delete("user",{username:{$in:arr}});
  if(str.result.ok){
   let sql = await db.find("user",{});

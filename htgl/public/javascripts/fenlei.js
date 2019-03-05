@@ -205,24 +205,34 @@ $(() => {
         }).join('');
         return str;
     }
-            //读取cookie获取用户名
-            var str =  document.cookie;          
-            var arr =  str.split("=");
-            if(arr){
-                $(".uname").text(arr[1]);
-                $(".uname").css("color","green")
+
+         // 判断是管理员身份
+    var str =  document.cookie;
+      
+    var arr =  str.split("=");
+    if(arr[1] == "Guest"){
+         $(".unames").css("display","none");
+    }else{
+         $(".unames").css("display","block");
+    
+    }
+
+
+          //读取localstorage获取用户名
+         var user = localStorage.getItem("user");
+    
+         if(!user){
+            user = {};
+            location.href ="http://localhost:3000/html/login.html";
+          }else{
+               user = JSON.parse(user);
+               $(".uname").text(user.username);
             }
 
-            $(".tuichu").click(function(){
-                location.href ="http://localhost:3000/html/login.html";
-            });
-            if(arr[1] == "Guest"){
-        
-                $(".unames").css("display","none");
-                 }else{
-               $(".unames").css("display","block");
-        
-             }
+       $(".tuichu").click(function(){
+              localStorage.removeItem('user');
+            location.href ="http://localhost:3000/html/login.html";
+       });
 
 
 
