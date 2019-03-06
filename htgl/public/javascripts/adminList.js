@@ -6,16 +6,7 @@ $(function(){
         location.href="http://localhost:3000/html/addAdmin.html";
 
     });
-    //隐藏用户添加
-    var str =  document.cookie;
-            
-    var arr =  str.split("=");
-    if(arr[1] == "Guest"){
-        $(".unames").css("display","none");
-    }else{
-        $(".unames").css("display","block");
-    }
-
+   
    
 
     // 渲染所有用户
@@ -113,6 +104,7 @@ $(function(){
 
     
     function show(str){
+        console.log(str);
         var arr = str.map(function(item){
             var datas = new Date(item.regtime);
             var Min = datas.toLocaleString();
@@ -148,23 +140,33 @@ $(function(){
           $(".users").html(arr); 
          
     }
-
-
-
-
-//读取localstorage获取用户名
-var user = localStorage.getItem("user");
-    
-if(!user){
-   user = {};
+ //隐藏用户添加
+ var str =  document.cookie;
+            
+ var arr =  str.split("=");
+ if(arr[1] == "Guest"){
+     $(".unames").css("display","none");
  }else{
-      user = JSON.parse(user);
-      $(".uname").text(user.username);
-   }
+     $(".unames").css("display","block");
+ }
+
+
+
+
+ //读取localstorage获取用户名
+ var user = localStorage.getItem("user");
+    
+ if(!user){
+    user = {};
+    location.href ="http://localhost:3000/html/login.html";
+  }else{
+       user = JSON.parse(user);
+       $(".uname").text(user.username);
+    }
 
 $(".tuichu").click(function(){
-     localStorage.removeItem('user');
-   location.href ="http://localhost:3000/html/login.html";
+       localStorage.removeItem('user');
+     location.href ="http://localhost:3000/html/login.html";
 });
 
 });

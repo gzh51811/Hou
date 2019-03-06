@@ -13,7 +13,7 @@ $(function(){
                     pwd, 
                 },
                 async:true,
-                success:function(str){
+                success:function(str){    
                    var sttr = JSON.stringify(str);
                     if(str.code == 200){
                         document.cookie = "username="+str.Administrator;

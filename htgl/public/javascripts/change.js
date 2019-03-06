@@ -75,7 +75,6 @@ $(function(){
         
         
     });
-<<<<<<< HEAD
 
  // 判断是管理员身份
  var str =  document.cookie;
@@ -103,7 +102,7 @@ $(".tuichu").click(function(){
       localStorage.removeItem('user');
     location.href ="http://localhost:3000/html/login.html";
 });
-=======
+
     //读取cookie获取用户名
     var str =  document.cookie;          
     var arr =  str.split("=");
@@ -111,7 +110,7 @@ $(".tuichu").click(function(){
         $(".unames").text(arr[1]);
         $(".unames").css("color","green")
     }
->>>>>>> 51f064fb50aea44bc38a3f5a95735a91f161e17a
+
 
     $(".tuichu").click(function(){
         location.href ="http://localhost:3000/html/login.html";
